@@ -35,7 +35,7 @@ export default function Home() {
               <img
                 loading="lazy"
                 alt="Search your musics icon"
-                src="/icons/musicNotFounded.svg"
+                src="/JMusic/icons/musicNotFounded.svg"
                 className="size-[150px] md:size-[200px] xl:size-[200px]"
               />
             </article>
@@ -56,18 +56,16 @@ export default function Home() {
                             alt="Liked music icon"
                             src={
                               items.liked
-                                ? "/icons/heartAddGreen.svg"
-                                : "/icons/heartAddWhite.svg"
+                                ? "/JMusic/icons/heartAddGreen.svg"
+                                : "/JMusic/icons/heartAddWhite.svg"
                             }
                           />
                         </button>
 
                         <img
                           onClick={() => {
-                            {
-                              setMusicIndex(index);
-                              setReproduceMusicArray(albums);
-                            }
+                            setMusicIndex(index);
+                            setReproduceMusicArray(albums);
                           }}
                           alt={items.title + " Cover"}
                           className="size-[60px] rounded-xl"
@@ -105,8 +103,9 @@ export default function Home() {
           ) : (
             <article className="flex flex-col items-center gap-[40px] p-[20px]">
               <img
-                className="size-[150px] md:size-[200px] xl:size-[200px]"
-                src="/icons/music-slash.svg"
+                alt="Music slash icon"
+                className="size-[150px] md:size-[200px] xl:size-[180px]"
+                src="/JMusic/icons/music-slash.svg"
               />
               <h2 className="font-bold text-xl text-white tracking-wider">
                 Music not found :(

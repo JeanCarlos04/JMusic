@@ -33,8 +33,8 @@ export function PlaylistModal() {
         className="size-[30px]"
         src={`${
           showPlaylistModal === "added" || showPlaylistModal === "MusicAdded"
-            ? "/icons/PlaylistAddedBlack.svg"
-            : "/icons/PlaylistRemovedWhite.svg"
+            ? "/JMusic/icons/PlaylistAddedBlack.svg"
+            : "/JMusic/icons/PlaylistRemovedWhite.svg"
         }`}
       />
     </div>

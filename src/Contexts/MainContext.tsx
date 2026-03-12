@@ -15,7 +15,7 @@ type ContextType = {
   savePlaylist: (
     name: string,
     cover: string,
-    musics: Albums | LikedMusics
+    musics: Albums | LikedMusics,
   ) => void;
   playlist: Playlists[];
   removePlaylist: (playlistID: Playlists) => void;
@@ -92,7 +92,7 @@ const MainContext = createContext<ContextType>(contextTypeDefault);
 
 function MainContextProvider({ children }: MainContextProp) {
   const [searchSinger, setSearchSinger] = useState<string | undefined>(
-    undefined
+    undefined,
   );
   const [reproduceMusicArray, setReproduceMusicArray] = useState<
     Albums[] | LikedMusics[] | (Albums | LikedMusics)[]
@@ -117,7 +117,7 @@ function MainContextProvider({ children }: MainContextProp) {
       const musicAPI = async () => {
         if (!searchSinger) return;
         const res = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${searchSinger}`
+          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${searchSinger}`,
         );
 
         const data = await res.json();
@@ -138,12 +138,12 @@ function MainContextProvider({ children }: MainContextProp) {
 
   const [playlist, setPlaylist] = useLocalStorageState<Playlists[]>(
     "playlist",
-    []
+    [],
   );
 
   const [likedMusics, setLikedMusics] = useLocalStorageState<LikedMusics[]>(
     "likedMusic",
-    []
+    [],
   );
 
   const [eachPlaylist, setEachPlaylist] = useLocalStorageState<
@@ -153,7 +153,7 @@ function MainContextProvider({ children }: MainContextProp) {
   useEffect(() => {
     if (eachPlaylist) {
       const eachPlaylistUpdated = playlist.find(
-        (p) => p.id === eachPlaylist.id
+        (p) => p.id === eachPlaylist.id,
       );
 
       if (eachPlaylistUpdated) {
@@ -169,11 +169,11 @@ function MainContextProvider({ children }: MainContextProp) {
         clearTimeout(timeOutID.current);
       }
       const alreadyLiked = prev.some(
-        (item) => item.likedMusics.id === musicLiked.id
+        (item) => item.likedMusics.id === musicLiked.id,
       );
       if (alreadyLiked) {
         const deletedMusic = likedMusics.filter(
-          (music) => music.likedMusics.id !== musicLiked.id
+          (music) => music.likedMusics.id !== musicLiked.id,
         );
         setShowLikedModal(modalFunctions.REMOVED);
         timeOutID.current = setTimeout(() => {
@@ -190,15 +190,15 @@ function MainContextProvider({ children }: MainContextProp) {
 
     setAlbums((prev) =>
       prev.map((album) =>
-        album.id === musicLiked.id ? { ...album, liked: !album.liked } : album
-      )
+        album.id === musicLiked.id ? { ...album, liked: !album.liked } : album,
+      ),
     );
   };
 
   const savePlaylist = (
     name: string,
     cover: string,
-    musics: Albums | LikedMusics
+    musics: Albums | LikedMusics,
   ) => {
     if (name === "" || name === undefined || name === null) {
       return;
@@ -239,8 +239,8 @@ function MainContextProvider({ children }: MainContextProp) {
                   musics: [...playlistMusics.playlist.musics, newSong],
                 },
               }
-            : playlistMusics
-        )
+            : playlistMusics,
+        ),
       );
     } else {
       setPlaylist((prev) =>
@@ -253,8 +253,8 @@ function MainContextProvider({ children }: MainContextProp) {
                   musics: [...playlistMusics.playlist.musics, newSong],
                 },
               }
-            : playlistMusics
-        )
+            : playlistMusics,
+        ),
       );
     }
     setShowPlaylistModal(modalFunctions.MusicAdded);
@@ -271,15 +271,15 @@ function MainContextProvider({ children }: MainContextProp) {
     setShowLikedModal(modalFunctions.REMOVED);
 
     const deletedMusics = likedMusics.filter(
-      (music) => music.likedMusics.id !== liked.likedMusics.id
+      (music) => music.likedMusics.id !== liked.likedMusics.id,
     );
 
     setAlbums((prev) =>
       prev.map((musicLiked) =>
         musicLiked.id === liked.likedMusics.id
           ? { ...musicLiked, liked: !musicLiked.liked }
-          : musicLiked
-      )
+          : musicLiked,
+      ),
     );
 
     timeOutID.current = setTimeout(() => {
@@ -308,7 +308,7 @@ function MainContextProvider({ children }: MainContextProp) {
   const isMusicLikedInPlaylist = (music: Albums | LikedMusics): boolean => {
     const likedID = "likedMusics" in music ? music.likedMusics.id : music.id;
     return likedMusics.some(
-      (musicsLiked) => musicsLiked.likedMusics.id === likedID
+      (musicsLiked) => musicsLiked.likedMusics.id === likedID,
     );
   };
 
@@ -318,7 +318,7 @@ function MainContextProvider({ children }: MainContextProp) {
     }
     const updatedPlaylists = playlist.map((playlistValue) => {
       const filteredMusics = playlistValue.playlist.musics.filter(
-        (musicValue) => musicValue !== musicToRemove
+        (musicValue) => musicValue !== musicToRemove,
       );
 
       return {

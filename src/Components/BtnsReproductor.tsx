@@ -32,7 +32,7 @@ export function BtnsReproductor({
         <img
           className="size-[20px] rotate-180 cursor-pointer"
           alt="Play back icon"
-          src="/icons/playWhite.svg"
+          src="/JMusic/icons/playWhite.svg"
         />
       </button>
       <button
@@ -42,7 +42,7 @@ export function BtnsReproductor({
         <img
           className="size-[20px] cursor-pointer"
           alt="Play forward icon"
-          src="/icons/playWhite.svg"
+          src="/JMusic/icons/playWhite.svg"
         />
       </button>
     </div>

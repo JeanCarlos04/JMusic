@@ -49,7 +49,7 @@ export function BtnPlay_Shuffle({
           }  size-[220px]`}
           src={
             headerValuesLikedMusics
-              ? "/icons/heartCheckGreen.svg"
+              ? "/JMusic/icons/heartCheckGreen.svg"
               : `${playlistCover}`
           }
         />
@@ -83,8 +83,8 @@ export function BtnPlay_Shuffle({
             Play
             <img
               alt="Play icon"
-              src="/icons/playBlack.svg"
-              className="size-[19px]"
+              src="/JMusic/icons/playBlack.svg"
+              className="size-[18px]"
             />
           </button>
           <button
@@ -96,7 +96,7 @@ export function BtnPlay_Shuffle({
             <img
               alt="shuffle arrows icon"
               className="size-[21px]"
-              src="/icons/shuffleIcon.svg"
+              src="/JMusic/icons/shuffleIcon.svg"
             />
             Shuffle
           </button>

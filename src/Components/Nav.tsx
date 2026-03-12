@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigateHook } from "../hooks/useNavigateHook";
 import { Link } from "react-router-dom";
+import { FaMagnifyingGlass, FaRegHeart } from "react-icons/fa6";
 
 type NavProps = {
   setSearchSinger: React.Dispatch<React.SetStateAction<string | undefined>>;
@@ -34,7 +35,7 @@ export function Nav({ setSearchSinger }: NavProps) {
         <img
           loading="lazy"
           alt="JMusic logo web"
-          src="/svg/JMusicLogo.webp"
+          src="/JMusic/svg/JMusicLogo.webp"
           className="w-[45px] h-[60px] rotate-12 md:w-[55px] md:h-[70px] xl:w-[55px] xl:h-[70px] "
         />
         <h2 className="xl:text-3xl md:text-3xl text-2xl font-semibold text-white">
@@ -47,15 +48,11 @@ export function Nav({ setSearchSinger }: NavProps) {
             value={inputValue}
             type="text"
             onChange={(e) => setInputValue(e.target.value)}
-            className="bg-white w-auto md:w-[300px] xl:w-[400px] outline-0 h-[38px] rounded-md pl-[20px] md:pl-[20px] xl:pl-[20px] placeholder:text-[#848484] placeholder:text-[15px] font-normal"
+            className="bg-[#222222] text-gray-300 text-sm border border-[#4e4e4e] w-auto md:w-[300px] xl:w-[400px] outline-0 h-[32px] rounded-md pl-[20px] md:pl-[20px] xl:pl-[20px] placeholder:text-[#9e9e9e] placeholder:text-[14px] font-normal"
             placeholder="Search your musics"
           />
         </form>
-        <img
-          alt="Magnifying glass icon"
-          className="xl:size-[20px] md:size-[20px] size-[18px] absolute right-3 md:right-5 xl:right-5"
-          src="/icons/LupaIcon.svg"
-        />
+        <FaMagnifyingGlass className="xl:size-[16px] text-gray-400 md:size-[20px] size-[18px] absolute right-3 md:right-5 xl:right-5" />
       </div>
       {getViewportSize > 640 ? (
         <>
@@ -63,11 +60,7 @@ export function Nav({ setSearchSinger }: NavProps) {
             to={"/likedMusics"}
             className="text-white hover:scale-110 duration-300 font-normal text-[18px] w-auto flex items-center gap-3 cursor-pointer"
           >
-            <img
-              alt="heart icon"
-              src="/icons/heartWhite.svg"
-              className="size-[20px]"
-            />{" "}
+            <FaRegHeart className="size-[20px]" />
             Likes
           </Link>
           <Link
@@ -76,7 +69,7 @@ export function Nav({ setSearchSinger }: NavProps) {
           >
             <img
               alt="list icon"
-              src="/icons/playlistWhite.svg"
+              src="/JMusic/icons/playlistWhite.svg"
               className="size-[23px]"
             />
             Playlists

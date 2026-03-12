@@ -26,7 +26,7 @@ export function EachPlaylist() {
   };
 
   const handlePlaylistMusicType = (
-    music: Albums | LikedMusics
+    music: Albums | LikedMusics,
   ): music is LikedMusics => {
     return music && "likedMusics" in music;
   };
@@ -100,7 +100,7 @@ export function EachPlaylist() {
                   <img
                     className="size-[22px]"
                     alt="Cancel icon"
-                    src="/icons/Cancel.svg"
+                    src="/JMusic/icons/Cancel.svg"
                   />
                 </button>
               </div>

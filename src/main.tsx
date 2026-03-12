@@ -8,7 +8,7 @@ import { MainContextProvider } from "./Contexts/MainContext.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <MainContextProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/JMusic">
         <App />
       </BrowserRouter>
     </MainContextProvider>

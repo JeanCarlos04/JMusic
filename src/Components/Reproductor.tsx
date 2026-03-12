@@ -30,7 +30,7 @@ export const Reproductor = React.memo(function Reproductor({
   const [indexType, setIndexType] = useState<number>(0);
 
   const isLikedMusic = (
-    music: Albums | LikedMusics | undefined
+    music: Albums | LikedMusics | undefined,
   ): music is LikedMusics => {
     if (music !== undefined) return music && "likedMusics" in music;
 
@@ -46,7 +46,7 @@ export const Reproductor = React.memo(function Reproductor({
   }, [musicIndex, randomIndex]);
 
   const handleIsLikedMusic = (
-    music: Albums[] | LikedMusics[] | (Albums | LikedMusics)[] | undefined
+    music: Albums[] | LikedMusics[] | (Albums | LikedMusics)[] | undefined,
   ): music is LikedMusics[] => {
     return (
       Array.isArray(music) &&
@@ -61,7 +61,7 @@ export const Reproductor = React.memo(function Reproductor({
     : reproduceMusicArray?.map((music) => music as Albums);
 
   const reproductorMusicType = (
-    music: LikedMusics[] | Albums[]
+    music: LikedMusics[] | Albums[],
   ): music is Albums[] => {
     return (
       Array.isArray(music) &&

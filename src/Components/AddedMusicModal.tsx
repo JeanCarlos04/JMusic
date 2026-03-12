@@ -25,8 +25,8 @@ export function AddedMusicModal() {
         className="size-[20px]"
         src={`${
           showLikedModal === "added"
-            ? "/icons/heart.svg"
-            : "/icons/heartCrackWhite.svg"
+            ? "/JMusic/icons/heart.svg"
+            : "/JMusic/icons/heartCrackWhite.svg"
         }`}
       />
     </div>

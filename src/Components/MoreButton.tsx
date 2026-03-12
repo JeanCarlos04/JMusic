@@ -24,7 +24,7 @@ export function MoreButton({ musicValues, musicCover }: PopOverMoreProps) {
   }, [internalCover, musicCover]);
 
   const isMusicAlbumType = (
-    musicValue: Albums | LikedMusics
+    musicValue: Albums | LikedMusics,
   ): musicValue is Albums => {
     return musicValue && "liked" in musicValue;
   };
@@ -42,7 +42,11 @@ export function MoreButton({ musicValues, musicCover }: PopOverMoreProps) {
         }}
         className="text-[#a3a3a3] h-[20px] text-4xl cursor-pointer"
       >
-        <img className="w-[20px]" src="/icons/ellipsis.svg" />
+        <img
+          alt="Ellipsis icon"
+          className="w-[20px]"
+          src="/JMusic/icons/ellipsis.svg"
+        />
       </button>
 
       {openPlaylists === true ? (
@@ -68,7 +72,7 @@ export function MoreButton({ musicValues, musicCover }: PopOverMoreProps) {
                 required
                 maxLength={50}
                 onChange={(e) => setPlaylistAlias(e.target.value)}
-                className="bg-white xl:w-[250px] w-full outline-0 h-[38px] rounded-md pl-[17px] placeholder:text-[#848484]"
+                className="bg-white text-sm xl:w-[250px] w-full outline-0 h-[34px] rounded-md pl-[17px] placeholder:text-[#848484]"
                 placeholder="Name of your playlist"
               />
               <button
@@ -77,12 +81,12 @@ export function MoreButton({ musicValues, musicCover }: PopOverMoreProps) {
                     savePlaylist(
                       playlistAlias,
                       internalCover,
-                      currentMusicType!
+                      currentMusicType!,
                     );
                     getEachPlaylistData(playlist[0]);
                   }
                 }}
-                className="bg-[#04f685] w-auto h-[30px] text-[13px] font-[500] px-3 rounded-full"
+                className="bg-[#04f685] w-auto h-[30px] text-[13px] font-[500] px-3 rounded-md items-center flex"
               >
                 New playlist
               </button>
@@ -97,7 +101,11 @@ export function MoreButton({ musicValues, musicCover }: PopOverMoreProps) {
                     key={list.id}
                     className="flex gap-[15px] cursor-pointer w-full"
                   >
-                    <img className="w-[20px]" src="/icons/tableGreen.svg" />
+                    <img
+                      alt="Green table icon"
+                      className="w-[20px]"
+                      src="/JMusic/icons/tableGreen.svg"
+                    />
                     <h2 className="text-white font-small text-lg w-full break-words truncate">
                       {list.playlist.name}{" "}
                     </h2>

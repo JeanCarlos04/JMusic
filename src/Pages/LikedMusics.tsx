@@ -16,7 +16,7 @@ export default function LikedMusics() {
   const [randomMusicIndex, setRandomMusicIndex] = useState<number>();
   const [activeRandomMusic, setActiveRandomMusic] = useState(false);
   const [getSelectedMusic, setGetSelectedMusic] = useState<LikedMusics | null>(
-    null
+    null,
   );
   const [hoveredMusic, setHoveredMusic] = useState(false);
   const [hoveredMusicId, setHoveredMusicId] = useState<number | null>(null);
@@ -48,7 +48,7 @@ export default function LikedMusics() {
             <article className="flex flex-col items-center gap-[20px] p-[20px]">
               <img
                 alt="icon about not liked musics yet"
-                src="/icons/heartCrackGreen.svg"
+                src="/JMusic/icons/heartCrackGreen.svg"
                 className="w-[120px]"
               />
               <h2 className="text-xl text-white font-semibold">
@@ -79,12 +79,13 @@ export default function LikedMusics() {
                       alt="Liked music icon"
                       src={
                         hoveredMusic && hoveredMusicId === music.likedMusics.id
-                          ? "/icons/heartCrackWhite.svg"
-                          : "/icons/heartAddGreen.svg"
+                          ? "/JMusic/icons/heartCrackWhite.svg"
+                          : "/JMusic/icons/heartAddGreen.svg"
                       }
                     />
                   </button>
                   <img
+                    alt={music.likedMusics.title + " cover"}
                     onClick={() => {
                       setReproduceMusicArray(likedMusics);
                       setPlayAllMusic(false);

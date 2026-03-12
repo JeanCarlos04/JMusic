@@ -4,8 +4,10 @@ import { Reproductor } from "../Components/Reproductor";
 import { useNavigate } from "react-router-dom";
 import { PlaylistModal } from "../Components/PlaylistModal";
 import { useContextImport } from "../hooks/useContextImport";
+import { useState } from "react";
 
 export default function Playlist() {
+  const [musicIndex, setMusicIndex] = useState(0);
   const { playlist, eachPlaylist, removePlaylist, getEachPlaylistData } =
     useContextImport();
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ export default function Playlist() {
             <img
               alt="icon of a disc"
               className="xl:size-[170px] md:size-[130px] size-[120px] animate-[spin_6s_linear_infinite]"
-              src="/icons/discGreen.svg"
+              src="/JMusic/icons/discGreen.svg"
             />
           </div>
           <div className="flex flex-col gap-[25px] md:gap-[10px] xl:gap-[10px] mb-[40px]">
@@ -53,7 +55,7 @@ export default function Playlist() {
             <article className="flex flex-col items-center gap-[20px] p-[20px]">
               <img
                 alt="icon about not plalist created yet"
-                src="/icons/NoPlaylist.svg"
+                src="/JMusic/icons/NoPlaylist.svg"
                 className="w-[120px]"
               />
               <h2 className="text-white font-semibold text-xl text-center">
@@ -83,7 +85,7 @@ export default function Playlist() {
                         <img
                           alt="Play icon"
                           className="w-[13px] h-auto"
-                          src="/icons/playWhite.svg"
+                          src="/JMusic/icons/playWhite.svg"
                         />
                       </button>
                       <button
@@ -93,7 +95,7 @@ export default function Playlist() {
                         <img
                           alt="Trash can icon"
                           className="w-[18px]"
-                          src="/icons/TrashCanWhite.svg"
+                          src="/JMusic/icons/TrashCanWhite.svg"
                         />
                       </button>
                     </div>
@@ -108,7 +110,7 @@ export default function Playlist() {
         </article>
       </section>
       <PlaylistModal />
-      <Reproductor />
+      <Reproductor setMusicIndexes={setMusicIndex} musicIndexes={musicIndex} />
     </main>
   );
 }
